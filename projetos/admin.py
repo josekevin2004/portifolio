@@ -5,17 +5,11 @@ from projetos.models import Projeto
 
 @admin.register(Projeto)
 class ProjetoAdmin(admin.ModelAdmin):
-    list_display = ('titulo_alias', 'descricao_alias', 'tecnologia')
+    list_display = ('titulo', 'descricao', 'tecnologia', 'publicado')
     list_filter = ('tecnologia',)
     ordering = ('tecnologia',)
     search_fields = ('titulo',)
 
-    @admin.display(description='Título')
-    def titulo_alias(self, obj):
-        return obj.titulo
-    
-    @admin.display(description='Descrição')
-    def descricao_alias(self, obj):
-        return obj.descricao
+   
     
     
